@@ -4,4 +4,4 @@
     <div class="title m-b-md">
         About page here
     </div>
-@stop
+@endsection

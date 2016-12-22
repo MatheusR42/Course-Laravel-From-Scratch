@@ -9,4 +9,4 @@
     @else
          There are no people
     @endunless
-@stop
+@endsection
