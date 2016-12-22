@@ -11,16 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-	$people = ['Matheus', 'Jeffrey', 'John'];
+Route::get('/', 'PagesController@home');
 
-    return view('welcome', compact('people'));
-
-    // return view('welcome', ['people' => $people]);
-    // return view('welcome')->with('people', $people);
-    // return view('welcome')->with(['people' => $people]);
-});
-
-Route::get('/about', function () {
-    return view('pages.about');
-});
+Route::get('/about', 'PagesController@about');
