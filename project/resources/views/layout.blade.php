@@ -63,6 +63,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     </head>
     <body>
 
