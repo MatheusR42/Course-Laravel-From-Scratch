@@ -6,6 +6,6 @@
     </div>
 
     @foreach ($cards as $card)
-        <li>{{ $card->title }}</li>
+        <li><a href="/cards/{{$card->id}}">{{ $card->title }}</a></li>
     @endforeach
 @endsection
