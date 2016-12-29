@@ -1,5 +1,40 @@
 <?php
 
+class Mail
+{
+
+}
+
+class RegistersUsers
+{
+	
+	protected $email;
+	protected $name;
+
+	public function __construct(Mail $email, $name)
+	{
+		$this->email = $email;
+		$this->name = $name;
+	}
+
+	public function sayHello()
+	{
+		return "Hello {$this->name}.";
+	}
+}
+
+// App::bind('RegistersUsers', function(){
+// 	return new RegistersUsers(new Mail, 'Matheus');
+// });
+
+// app()->singleton('RegistersUsers', function(){
+// 	return new RegistersUsers(new Mail, 'Matheus');
+// });
+
+app()->bind('RegistersUsers', function(){
+	return new RegistersUsers(new Mail, 'Matheus');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +59,15 @@ Route::post('/cards/{card}/notes', 'NotesController@store');
 Route::get('/notes/{note}/edit', 'NotesController@edit');
 
 Route::patch('/notes/{note}', 'NotesController@update');
+
+// Route::get('/ServiceContainer', function(RegistersUsers $registersUsers){
+// 	$one = app('RegistersUsers');
+// 	return $one->sayHello();
+// });
+
+Route::get('/ServiceContainer', function(RegistersUsers $registersUsers){
+	$one = app('RegistersUsers');
+	$two = app('RegistersUsers');
+
+	dd($one, $two);
+});
